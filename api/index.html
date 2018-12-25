@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JSON-RPC APi Reference</title>
+    <meta name="description" content="he documentation, system design guide, api reference and command line tool reference of PPIO. PPIO is a private, stable and affordable programmable decentralized cloud storage.">
+    <meta name="description" content="The documentation, system design guide, api reference and command line tool reference of PPIO. PPIO is a private, stable and affordable programmable decentralized cloud storage.">
+  <meta name="keywords" content="system design, get started, get starting, api reference, command line tool, PPIO, ppio, ppio sdk">
+  <meta name="author" content="PPIO, Inc.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PPIO">
+  <meta property="og:title" content="PPIO: A private, stable and affordable programmable decentralized cloud storage.">
+  <meta property="og:description" content="The documentation, system design guide, api reference and command line tool reference of PPIO.">
+  <meta property="og:url" content="https://docs.pp.io">
+  <meta property="og:image" content="https://pp.io/share.png">
+  <meta property="og:image:alt" content="PPIO">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:site" content="@PPLabs_PPIO">
+  <meta property="twitter:creator" content="@PPLabs_PPIO">
+  <meta property="twitter:title" content="PPIO: A private, stable and affordable programmable decentralized cloud storage.">
+  <meta property="twitter:description" content="The documentation, system design guide, api reference and command line tool reference of PPIO.">
+  <meta property="twitter:url" content="https://docs.pp.io">
+  <meta property="twitter:image" content="https://pp.io/share.png">
+  <link rel="icon" href="/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css">
+    
+    <link rel="preload" href="/assets/css/0.styles.3afaf8b8.css" as="style"><link rel="preload" href="/assets/js/app.28ed3b6b.js" as="script"><link rel="preload" href="/assets/js/5.6afcc576.js" as="script"><link rel="prefetch" href="/assets/js/2.f48f8e29.js"><link rel="prefetch" href="/assets/js/3.06aae7e7.js"><link rel="prefetch" href="/assets/js/4.5abc7448.js"><link rel="prefetch" href="/assets/js/6.1d17ad8b.js"><link rel="prefetch" href="/assets/js/7.8a418255.js"><link rel="prefetch" href="/assets/js/8.10533818.js"><link rel="prefetch" href="/assets/js/9.29659737.js"><link rel="prefetch" href="/assets/js/10.9679bcec.js"><link rel="prefetch" href="/assets/js/11.4dba7306.js"><link rel="prefetch" href="/assets/js/12.07c185e5.js"><link rel="prefetch" href="/assets/js/13.fde40de7.js"><link rel="prefetch" href="/assets/js/14.bac8f0b1.js"><link rel="prefetch" href="/assets/js/15.8bcf3e25.js"><link rel="prefetch" href="/assets/js/16.6e21274a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3afaf8b8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="navbar-container"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="https://pp.io" class="home-link"><img src="/logo.png" alt="" class="logo"> <!----></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><a href="/api/" class="nav-link router-link-exact-active router-link-active">API</a></div><div class="nav-item"><a href="https://pp.io/projects.html" rel="noopener noreferrer" class="nav-link external">
+  Projects
+  </a></div><div class="nav-item"><a href="https://blog.pp.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Blog
+  </a></div><div class="nav-item"><a href="https://github.com/ppio" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  </a></div> <!----></nav></div></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><a href="/api/" class="nav-link router-link-exact-active router-link-active">API</a></div><div class="nav-item"><a href="https://pp.io/projects.html" rel="noopener noreferrer" class="nav-link external">
+  Projects
+  </a></div><div class="nav-item"><a href="https://blog.pp.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Blog
+  </a></div><div class="nav-item"><a href="https://github.com/ppio" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  </a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/api/" class="active sidebar-link">JSON-RPC APi Reference</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/api/#overview" class="sidebar-link">Overview</a></li><li class="sidebar-sub-header"><a href="/api/#ppio-config" class="sidebar-link">ppio config</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/api/#configshow" class="sidebar-link">ConfigShow</a></li></ul></li><li class="sidebar-sub-header"><a href="/api/#ppio-daemon" class="sidebar-link">ppio daemon</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/api/#daemonstop" class="sidebar-link">DaemonStop</a></li></ul></li><li class="sidebar-sub-header"><a href="/api/#ppio-metadata" class="sidebar-link">ppio metadata</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/api/#metadataput" class="sidebar-link">MetadataPut</a></li><li class="sidebar-sub-header"><a href="/api/#metadataget" class="sidebar-link">MetadataGet</a></li></ul></li><li class="sidebar-sub-header"><a href="/api/#ppio-net" class="sidebar-link">ppio net</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/api/#netid" class="sidebar-link">NetId</a></li><li class="sidebar-sub-header"><a href="/api/#netping" class="sidebar-link">NetPing</a></li><li class="sidebar-sub-header"><a href="/api/#netpeers" class="sidebar-link">NetPeers</a></li><li class="sidebar-sub-header"><a href="/api/#netservers" class="sidebar-link">NetServers</a></li></ul></li><li class="sidebar-sub-header"><a href="/api/#ppio-object" class="sidebar-link">ppio object</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/api/#objectimport" class="sidebar-link">ObjectImport</a></li><li class="sidebar-sub-header"><a href="/api/#objectexport" class="sidebar-link">ObjectExport</a></li><li class="sidebar-sub-header"><a href="/api/#objectput" class="sidebar-link">ObjectPut</a></li><li class="sidebar-sub-header"><a href="/api/#objectget" class="sidebar-link">ObjectGet</a></li><li class="sidebar-sub-header"><a href="/api/#objectcopy" class="sidebar-link">ObjectCopy</a></li><li class="sidebar-sub-header"><a href="/api/#objectstatus" class="sidebar-link">ObjectStatus</a></li><li class="sidebar-sub-header"><a href="/api/#objectlist" class="sidebar-link">ObjectList</a></li><li class="sidebar-sub-header"><a href="/api/#objectdelete" class="sidebar-link">ObjectDelete</a></li><li class="sidebar-sub-header"><a href="/api/#objectrenew" class="sidebar-link">ObjectRenew</a></li><li class="sidebar-sub-header"><a href="/api/#objectupdateacl" class="sidebar-link">ObjectUpdateacl</a></li><li class="sidebar-sub-header"><a href="/api/#objectauth" class="sidebar-link">ObjectAuth</a></li></ul></li><li class="sidebar-sub-header"><a href="/api/#ppio-status" class="sidebar-link">ppio status</a></li><li class="sidebar-sub-header"><a href="/api/#ppio-storage" class="sidebar-link">ppio storage</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/api/#storageobject" class="sidebar-link">StorageObject</a></li><li class="sidebar-sub-header"><a href="/api/#storageobjects" class="sidebar-link">StorageObjects</a></li><li class="sidebar-sub-header"><a href="/api/#storagesegments" class="sidebar-link">StorageSegments</a></li><li class="sidebar-sub-header"><a href="/api/#storagekeep" class="sidebar-link">StorageKeep</a></li><li class="sidebar-sub-header"><a href="/api/#storageusage" class="sidebar-link">StorageUsage</a></li><li class="sidebar-sub-header"><a href="/api/#storagegc" class="sidebar-link">StorageGc</a></li></ul></li><li class="sidebar-sub-header"><a href="/api/#ppio-wallet" class="sidebar-link">ppio wallet</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/api/#walletaddress" class="sidebar-link">WalletAddress</a></li><li class="sidebar-sub-header"><a href="/api/#walletbalance" class="sidebar-link">WalletBalance</a></li></ul></li></ul></li></ul> </div> <div class="page"> <div class="content"><h1 id="json-rpc-api-reference"><a href="#json-rpc-api-reference" aria-hidden="true" class="header-anchor">¶</a> JSON-RPC APi Reference</h1> <h2 id="overview"><a href="#overview" aria-hidden="true" class="header-anchor">¶</a> Overview</h2> <p>This article uses <code>curl</code> to illustrate PPIO jsonrpc Api. Developers can refer to this protocol to achieve RPC access to PPIO through other languages or tools.</p> <p>In general, a PPIO command corresponds to a PPIO jsonrpc request (in addition to commands <code>ppio daemon start</code>, <code>ppio init</code>, <code>ppio help</code>, <code>ppio version</code>, etc.)</p> <p>The <code>--rpchost</code> and <code>--rpcport</code> options in the PPIO command correspond to the RPC host and port specified in the jsonrpc request.</p> <p>Other options and parameters in the PPIO command are passed in params in jsonrpc. The order is strictly as specified in this document, the parameter name is ignored.</p> <ul><li><p><strong>curl options</strong>:</p> <table><thead><tr><th>Params</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>-X</td> <td>none</td> <td>requested method name</td></tr> <tr><td>-H</td> <td>none</td> <td>request header</td></tr> <tr><td>--data</td> <td>none</td> <td>request params</td></tr></tbody></table> <div class="warning custom-block"><p class="custom-block-title">NOTE</p> <p>In the examples, unless otherwise specified, the service address and port of the RPC request are: <code>http://127.0.0.1:18060</code>, the -H option value is: <code>content-type:text/json;</code>, the value of the -X option is: <code>POST</code>.</p></div></li> <li><p><strong>data parameter</strong>:</p> <table><thead><tr><th>Params</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>id</td> <td>none</td> <td>rpc request ID</td></tr> <tr><td>jsonrpc</td> <td>&quot;2.0&quot;</td> <td>jsonrpc version</td></tr> <tr><td>method</td> <td>none</td> <td>rpc request method name</td></tr> <tr><td>params</td> <td>none</td> <td>rpc request parmas</td></tr></tbody></table> <div class="warning custom-block"><p class="custom-block-title">NOTE</p> <p>The parameters related to the currency pool are not considered in params.</p></div></li> <li><p><strong>Response</strong>:</p> <table><thead><tr><th>Params</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>id</td> <td>none</td> <td>rpc request ID(It's the same as the rpc request id.)</td></tr> <tr><td>jsonrpc</td> <td>&quot;2.0&quot;</td> <td>jsonrpc version</td></tr> <tr><td>Result</td> <td>none</td> <td>If the rpc request is successful, result is a string indicating that the message is returned or none indicates no message</td></tr> <tr><td>error</td> <td>none</td> <td>If the rpc request fails, error is a json object. <code>error.code</code> indicates the error code, <code>error.message</code> indicates the error message</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio object <span class="token function">import</span> --rpchost<span class="token operator">=</span>127.0.0.1 --rpcport<span class="token operator">=</span>18060 --encrypt<span class="token operator">=</span>AES --key<span class="token operator">=</span>123 /home/u/ppio.txt
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> -X POST -H <span class="token string">'content-type:text/json;'</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;ObjectImport&quot;,&quot;params&quot;:[&quot;/home/u/ppio.txt&quot;,&quot;AES&quot;,&quot;123&quot;]}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Response Result succeed</span>
+<span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;result&quot;:&quot;bc07088e505d35f10e51a1a782db06ebdfd057cfba984761c57b9307e0449810&quot;}'</span>
+
+<span class="token comment"># Response Result failed</span>
+<span class="token punctuation">{</span><span class="token string">&quot;error&quot;</span>:<span class="token punctuation">{</span><span class="token string">&quot;code&quot;</span>:-1,<span class="token string">&quot;message&quot;</span><span class="token keyword">:</span><span class="token string">&quot;open /home/u/ppio.txt: no such file or directory&quot;</span><span class="token punctuation">}</span>,<span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span><span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h2 id="ppio-config"><a href="#ppio-config" aria-hidden="true" class="header-anchor">¶</a> ppio config</h2> <ul><li><p><strong>Description</strong>:<br>
+Manage configuration of user node.</p></li> <li><p><strong>Subcommands</strong>:</p> <table><thead><tr><th>Subcommand</th> <th>Description</th></tr></thead> <tbody><tr><td><a href="#configshow"><code>ConfigShow</code></a></td> <td>Show the configuration of the user node.</td></tr></tbody></table></li></ul> <h3 id="configshow"><a href="#configshow" aria-hidden="true" class="header-anchor">¶</a> ConfigShow</h3> <ul><li><p><strong>Description</strong>:<br>
+Show the configuration of the user node.</p></li> <li><p><strong>Options</strong>:</p> <table><thead><tr><th>Options</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>--rpchost</td> <td>&quot;127.0.0.1&quot;</td> <td>RPC service address</td></tr> <tr><td>--rpcport</td> <td>18060</td> <td>RPC port</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio config show
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;ConfigShow&quot;,&quot;params&quot;:[],&quot;id&quot;:3}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Response</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span>:3,
+  <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2.0&quot;</span>,
+  <span class="token string">&quot;result&quot;</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;Net&quot;</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+      <span class="token string">&quot;BindIP&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;127.0.0.1&quot;</span>,
+      <span class="token string">&quot;UDPPort&quot;</span><span class="token keyword">:</span> 8060,
+      <span class="token string">&quot;TCPPort&quot;</span><span class="token keyword">:</span> 8060,
+      <span class="token string">&quot;Debug&quot;</span><span class="token keyword">:</span> true,
+      <span class="token string">&quot;DisableTCP&quot;</span><span class="token keyword">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span>,
+    <span class="token string">&quot;RPCHost&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;127.0.0.1&quot;</span>,
+    <span class="token string">&quot;RPCPort&quot;</span><span class="token keyword">:</span> 18060,
+    <span class="token string">&quot;Bootstrap&quot;</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+      <span class="token string">&quot;IP&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;127.0.0.1&quot;</span>,
+      <span class="token string">&quot;UDPPort&quot;</span><span class="token keyword">:</span> 8030,
+      <span class="token string">&quot;TCPPort&quot;</span><span class="token keyword">:</span> 8030,
+      <span class="token string">&quot;ID&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;&quot;</span>
+    <span class="token punctuation">}</span>,
+    <span class="token string">&quot;UserAccount&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;&quot;</span>,
+    <span class="token string">&quot;StroagePath&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;storage&quot;</span>,
+    <span class="token string">&quot;StorageMax&quot;</span><span class="token keyword">:</span> 1073741824,
+    <span class="token string">&quot;StorageGCThreshold&quot;</span><span class="token keyword">:</span> 0.8,
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h2 id="ppio-daemon"><a href="#ppio-daemon" aria-hidden="true" class="header-anchor">¶</a> ppio daemon</h2> <ul><li><p><strong>Description</strong>:<br>
+Manage daemon service of the user node.</p></li> <li><p><strong>Subcommands</strong>:</p> <table><thead><tr><th>Subcommand</th> <th>Description</th></tr></thead> <tbody><tr><td><a href="#daemonstop"><code>DaemonStop</code></a></td> <td>stop the daemon service</td></tr></tbody></table></li></ul> <h3 id="daemonstop"><a href="#daemonstop" aria-hidden="true" class="header-anchor">¶</a> DaemonStop</h3> <ul><li><p><strong>Description</strong>:<br>
+Stop daemon service of user node.</p></li> <li><p><strong>Params</strong>:<br>
+none</p></li> <li><p><strong>Success Response</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>result</td> <td>null</td></tr></tbody></table></li> <li><p><strong>Fail Response</strong>:<br>
+none</p></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio daemon stop
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;StopDaemon&quot;,&quot;params&quot;:[],&quot;id&quot;:3}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Response</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span>:3,
+  <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2.0&quot;</span>,
+  <span class="token string">&quot;result&quot;</span><span class="token keyword">:</span> null
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h2 id="ppio-metadata"><a href="#ppio-metadata" aria-hidden="true" class="header-anchor">¶</a> ppio metadata</h2> <ul><li><p><strong>Description</strong>:<br>
+Manage metadata of the user node. Metadata is used to store user's basic information and the size is limited to 1M.</p></li> <li><p><strong>Subcommands</strong>:</p> <table><thead><tr><th>Subcommand</th> <th>Description</th></tr></thead> <tbody><tr><td><a href="#metadataput"><code>MetadataPut</code></a></td> <td>Upload the metadata to the Indexer node</td></tr> <tr><td><a href="#metadataget"><code>MetadataGet</code></a></td> <td>Download the metadata from the Indexer node</td></tr></tbody></table></li></ul> <h3 id="metadataput"><a href="#metadataput" aria-hidden="true" class="header-anchor">¶</a> MetadataPut</h3> <ul><li><p><strong>Description</strong>:<br>
+Upload the metadata to the Indexer node.</p></li> <li><p><strong>Params</strong>:</p> <table><thead><tr><th>Options</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>metadata</td> <td>none</td> <td>Plain text metadata string entered by the user</td></tr> <tr><td>encoding</td> <td>&quot;RAW&quot;</td> <td>&quot;RAW&quot; indicates the &lt;meta-data&gt; is in text format. &quot;HEX&quot; indicates &lt;meta-data&gt; is in hex format</td></tr></tbody></table></li> <li><p><strong>Success Response</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>null</td></tr></tbody></table></li> <li><p><strong>Fail Response</strong>:</p> <table><thead><tr><th>Result</th> <th>Error Code</th> <th>Error Message</th></tr></thead> <tbody><tr><td>error</td> <td>-1</td> <td>&quot;meta-data exceeds it's limit length&quot;</td></tr> <tr><td>error</td> <td>-1</td> <td>&quot;account not exists&quot;</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ./ppio metadata put <span class="token string">&quot;Test metadata&quot;</span>
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;MetadataPut&quot;,&quot;params&quot;:[&quot;Test metadata&quot;,&quot;&quot;]}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span><span class="token string">&quot;id&quot;</span>:3,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2.0&quot;</span>,<span class="token string">&quot;result&quot;</span><span class="token keyword">:</span> null<span class="token punctuation">}</span>
+
+</code></pre></div></li></ul> <h3 id="metadataget"><a href="#metadataget" aria-hidden="true" class="header-anchor">¶</a> MetadataGet</h3> <ul><li><p><strong>Description</strong>:<br>
+Download the metadata from the Indexer node</p></li> <li><p><strong>Params</strong>:</p> <table><thead><tr><th>Options</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>encoding</td> <td>&quot;RAW&quot;</td> <td>&quot;RAW&quot; indicates the &lt;meta-data&gt; is in text format. &quot;HEX&quot; indicates &lt;meta-data&gt; is in hex format</td></tr></tbody></table></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>The metadata of the user node, encoded according to encoding</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Error Code</th> <th>Error Message</th></tr></thead> <tbody><tr><td>error</td> <td>-1</td> <td>&quot;account not exists&quot;</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ./ppio metadata get
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;MetadataGet&quot;,&quot;params&quot;:[&quot;&quot;]}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result succeed</span>
+<span class="token punctuation">{</span><span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span>,<span class="token string">&quot;result&quot;</span><span class="token keyword">:</span><span class="token string">&quot;Test metadata&quot;</span><span class="token punctuation">}</span>
+
+<span class="token comment"># Result failed</span>
+<span class="token punctuation">{</span><span class="token string">&quot;error&quot;</span>:<span class="token punctuation">{</span><span class="token string">&quot;code&quot;</span>:-1,<span class="token string">&quot;message&quot;</span><span class="token keyword">:</span><span class="token string">&quot;account not exists&quot;</span><span class="token punctuation">}</span>,<span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span><span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h2 id="ppio-net"><a href="#ppio-net" aria-hidden="true" class="header-anchor">¶</a> ppio net</h2> <ul><li><p><strong>Description</strong>:<br>
+Manage network information of user node.</p></li> <li><p><strong>Subcommands</strong>:</p> <table><thead><tr><th>Subcommand</th> <th>Description</th></tr></thead> <tbody><tr><td><a href="#netid"><code>NetId</code></a></td> <td>Show the user node's network address, in hex string</td></tr> <tr><td><a href="#netping"><code>NetPing</code></a></td> <td>Ping another user node</td></tr> <tr><td><a href="#netpeers"><code>NetPeers</code></a></td> <td>Show the information of connected peers</td></tr> <tr><td><a href="#netservers"><code>NetServers</code></a></td> <td>Show the information of connected servers</td></tr></tbody></table></li></ul> <h3 id="netid"><a href="#netid" aria-hidden="true" class="header-anchor">¶</a> NetId</h3> <ul><li><p><strong>Description</strong>:<br>
+Show the user node's network address, in hex string</p></li> <li><p><strong>Params</strong>:<br>
+none</p></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>The network ID of the current node, in hex string</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:<br>
+none</p></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;NetId&quot;,&quot;params&quot;:[],&quot;id&quot;:3}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span><span class="token string">&quot;id&quot;</span>:3,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span>,<span class="token string">&quot;result&quot;</span><span class="token keyword">:</span><span class="token string">&quot;002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa&quot;</span><span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="netping"><a href="#netping" aria-hidden="true" class="header-anchor">¶</a> NetPing</h3> <ul><li><p><strong>Description</strong>:<br>
+Ping another user node.</p></li> <li><p><strong>Params</strong>:</p> <table><thead><tr><th>Name</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>target-id</td> <td>none</td> <td>Peer ID value of the user node</td></tr></tbody></table></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>result.id</td> <td>Peer ID of the detected target</td></tr> <tr><td>result.out-latency</td> <td>The going delay of this node to the target node, unit in milliseconds</td></tr> <tr><td>result.in-latency</td> <td>The forward delay from the target node to the current node, unit in milliseconds</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:<br>
+none</p></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio net <span class="token function">ping</span> 080a6fdb95cee6f852cb4b061525c866cbbe2c0a
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;NetPing&quot;,&quot;params&quot;:[&quot;080a6fdb95cee6f852cb4b061525c866cbbe2c0a&quot;],&quot;id&quot;:3}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span>:3,
+  <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2.0&quot;</span>,
+  <span class="token string">&quot;result&quot;</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;id&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;080a6fdb95cee6f852cb4b061525c866cbbe2c0a&quot;</span>
+    <span class="token string">&quot;out-latency&quot;</span><span class="token keyword">:</span> 20
+    <span class="token string">&quot;in-latency&quot;</span><span class="token keyword">:</span> 20
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="netpeers"><a href="#netpeers" aria-hidden="true" class="header-anchor">¶</a> NetPeers</h3> <ul><li><p><strong>Description</strong>:<br>
+Show the information of connected peers.</p></li> <li><p><strong>Params</strong>:<br>
+none</p></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>result[i].id</td> <td>The id value of the i-th connected node</td></tr> <tr><td>result[i].out-latency</td> <td>The going delay of this node to the i-th connected node, unit in milliseconds</td></tr> <tr><td>result[i].in-latency</td> <td>The forward delay of this node to the i-th connected node, unit in milliseconds</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:<br>
+none</p></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio net peers
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;NetPeers&quot;,&quot;params&quot;:[&quot;080a6fdb95cee6f852cb4b061525c866cbbe2c0a&quot;],&quot;id&quot;:3}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span>:3,
+  <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2.0&quot;</span>,
+  <span class="token string">&quot;result&quot;</span><span class="token keyword">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token string">&quot;id&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;080a6fdb95cee6f852cb4b061525c866cbbe2c0a&quot;</span>
+      <span class="token string">&quot;out-latency&quot;</span><span class="token keyword">:</span> 20
+      <span class="token string">&quot;in-latency&quot;</span><span class="token keyword">:</span> 20
+    <span class="token punctuation">}</span>,
+    <span class="token punctuation">{</span>
+      <span class="token string">&quot;id&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;080a6fdb95cee6f852cb4b061525c866cbbe2c0b&quot;</span>
+      <span class="token string">&quot;out-latency&quot;</span><span class="token keyword">:</span> 20
+      <span class="token string">&quot;in-latency&quot;</span><span class="token keyword">:</span> 20
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="netservers"><a href="#netservers" aria-hidden="true" class="header-anchor">¶</a> NetServers</h3> <ul><li><p><strong>Description</strong>:<br>
+Show the information of connected servers.</p></li> <li><p><strong>Params</strong>:<br>
+none</p></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>result.Indexers[i]</td> <td>Status of the i-th Indexer node</td></tr> <tr><td>result.Verifiers[i]</td> <td>Status of the i-th Verifier node</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:<br>
+none</p></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># return format</span>
+<span class="token comment"># &lt;index&gt; [indexer | verifier] &lt;ip&gt;:&lt;tcpport&gt;:&lt;udpport&gt;</span>
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;NetServers&quot;,&quot;params&quot;:[],&quot;id&quot;:3}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span>
+    <span class="token string">&quot;id&quot;</span>:3,
+    <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span>,
+    <span class="token string">&quot;result&quot;</span>:<span class="token punctuation">{</span>
+        <span class="token string">&quot;Indexers&quot;</span>:<span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">&quot;Name&quot;</span><span class="token keyword">:</span><span class="token string">&quot;indexer&quot;</span>,
+            <span class="token string">&quot;PeerID&quot;</span><span class="token keyword">:</span><span class="token string">&quot;00250802122102ec8e7f2675863c26ba5f61c7b7972bd3a5c4a8276566de829390a6faf83470fc&quot;</span>,
+            <span class="token string">&quot;Address&quot;</span><span class="token keyword">:</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;IP&quot;</span><span class="token keyword">:</span><span class="token string">&quot;127.0.0.1&quot;</span>,
+                <span class="token string">&quot;UDPPort&quot;</span>:8030,
+                <span class="token string">&quot;TCPPort&quot;</span>:8030
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>,
+        <span class="token string">&quot;Verifiers&quot;</span>:<span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+        <span class="token string">&quot;Name&quot;</span><span class="token keyword">:</span><span class="token string">&quot;verifier&quot;</span>,
+        <span class="token string">&quot;PeerID&quot;</span><span class="token keyword">:</span><span class="token string">&quot;00250802122103974c318dc943780b89f526d2c91199c1f5847687250720cee1a7ae3086c7052e&quot;</span>,
+            <span class="token string">&quot;Address&quot;</span><span class="token keyword">:</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;IP&quot;</span><span class="token keyword">:</span><span class="token string">&quot;127.0.0.1&quot;</span>,
+                <span class="token string">&quot;UDPPort&quot;</span>:8040,
+                <span class="token string">&quot;TCPPort&quot;</span>:8040
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h2 id="ppio-object"><a href="#ppio-object" aria-hidden="true" class="header-anchor">¶</a> ppio object</h2> <ul><li><p><strong>Description</strong>:<br>
+Manage the Objects of the user node.</p></li> <li><p><strong>Subcommands</strong>:</p> <table><thead><tr><th>Subcommand</th> <th>Description</th></tr></thead> <tbody><tr><td><a href="#objectimport"><code>ObjectImport</code></a></td> <td>Import a file from local file system or pipe into local storage</td></tr> <tr><td><a href="#objectexport"><code>ObjectExport</code></a></td> <td>Export an Object in the local storage to local file system</td></tr> <tr><td><a href="#objectput"><code>ObjectPut</code></a></td> <td>Upload an Object in local storage</td></tr> <tr><td><a href="#objectget"><code>ObjectGet</code></a></td> <td>Download an Object to local storage</td></tr> <tr><td><a href="#objectcopy"><code>ObjectCopy</code></a></td> <td>Copy an Object owned by other user</td></tr> <tr><td><a href="#objectstatus"><code>ObjectStatus</code></a></td> <td>Get status of an Object</td></tr> <tr><td><a href="#objectlist"><code>ObjectList</code></a></td> <td>Get status of all Objects owned by the user</td></tr> <tr><td><a href="#objectdelete"><code>ObjectDelete</code></a></td> <td>Delete an Object</td></tr> <tr><td><a href="#objectrenew"><code>ObjectRenew</code></a></td> <td>Republish an Object</td></tr> <tr><td><a href="#objectupdateacl"><code>ObjectUpdateacl</code></a></td> <td>Update ACL information of an Object</td></tr> <tr><td><a href="#objectauth"><code>ObjectAuth</code></a></td> <td>Authorize Objects to other users</td></tr></tbody></table></li></ul> <h3 id="objectimport"><a href="#objectimport" aria-hidden="true" class="header-anchor">¶</a> ObjectImport</h3> <ul><li><p><strong>Description</strong>:<br>
+Import a file from local file system or pipe and store it into local storage of the user node.<br>
+The file that is stored in local storage is called &quot;Object&quot;.</p> <p><strong>Detailed process of file processing:</strong></p> <ol><li>Encrypt the file first.</li> <li>The encrypted file is sliced to cut it into multiple files (called Segment), and the file name of the Segment is the Hash value of its content.</li> <li>The name of Object is the Hash value all its segments.</li></ol> <p><strong>The location of the Segment in the local storage space is as follows:</strong></p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token operator">&lt;</span>datadir<span class="token operator">&gt;</span>/storage/<span class="token operator">&lt;</span>object-hash<span class="token operator">&gt;</span>/<span class="token operator">&lt;</span>object-hash<span class="token operator">&gt;</span>.desc
+<span class="token operator">&lt;</span>datadir<span class="token operator">&gt;</span>/storage/<span class="token operator">&lt;</span>object-hash<span class="token operator">&gt;</span>/<span class="token operator">&lt;</span>segment1-id<span class="token operator">&gt;</span>.dat
+<span class="token operator">&lt;</span>datadir<span class="token operator">&gt;</span>/storage/<span class="token operator">&lt;</span>object-hash<span class="token operator">&gt;</span>/<span class="token operator">&lt;</span>segment2-id<span class="token operator">&gt;</span>.dat
+
+<span class="token comment"># &lt;object-hash&gt; = HASH(&lt;segment1-hash&gt;&lt;segment2-hash&gt;)</span>
+<span class="token comment"># the content of &quot;&lt;object-hash&gt;.desc&quot;:</span>
+<span class="token comment"># &lt;object-hash&gt; &lt;object-hash&gt;   &lt;segment-count&gt;  &lt;object-length&gt;</span>
+<span class="token comment"># &lt;segment1-id&gt; &lt;segment1-hash&gt; &lt;segment1-index&gt; &lt;segment1-length&gt;</span>
+<span class="token comment"># &lt;segment1-id&gt; &lt;segment2-hash&gt; &lt;segment2-index&gt; &lt;segment2-length&gt;</span>
+</code></pre></div><p>After the file is successfully imported, you can view the object information through the <code>ppio storage object</code> or <code>ppio storage objects</code> command.</p></li> <li><p><strong>Params</strong>:</p> <table><thead><tr><th>Name</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>local-path</td> <td>&quot;none&quot;</td> <td>Local path to the import file</td></tr> <tr><td>encrypt</td> <td>&quot;AES&quot;</td> <td>Algorithm used to encrypt the original file</td></tr> <tr><td>key</td> <td>&quot;&quot;</td> <td>Key used to encrypt the original file</td></tr></tbody></table></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>object-hash, in hex string</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Error Code</th> <th>Error Message</th></tr></thead> <tbody><tr><td>error</td> <td>-1</td> <td>&quot;no such file or directory&quot;</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio object <span class="token function">import</span> --rpchost<span class="token operator">=</span>127.0.0.1 --rpcport<span class="token operator">=</span>18060 --encrypt<span class="token operator">=</span>AES --key<span class="token operator">=</span>123 /home/u/ppio.txt
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;ObjectImport&quot;,&quot;params&quot;:[&quot;/home/u/ppio.txt&quot;,&quot;AES&quot;,&quot;123&quot;]}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result succeed</span>
+<span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;result&quot;:&quot;bc07088e505d35f10e51a1a782db06ebdfd057cfba984761c57b9307e0449810&quot;}'</span>
+
+<span class="token comment"># Result failed</span>
+<span class="token punctuation">{</span><span class="token string">&quot;error&quot;</span>:<span class="token punctuation">{</span><span class="token string">&quot;code&quot;</span>:-1,<span class="token string">&quot;message&quot;</span><span class="token keyword">:</span><span class="token string">&quot;open /home/u/ppio.txt: no such file or directory&quot;</span><span class="token punctuation">}</span>,<span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span><span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="objectexport"><a href="#objectexport" aria-hidden="true" class="header-anchor">¶</a> ObjectExport</h3> <ul><li><p><strong>Description</strong>:<br>
+Export an Object from user node's storage to local file system.<br> <strong>Detailed process:</strong></p> <ol><li>If there is no specified Object, it will download the object from PPIO network first;</li> <li>Once the Object is ready in local storage, segments are composed and then decrypted, and stored into local file system.</li></ol></li> <li><p><strong>Params</strong>:</p> <table><thead><tr><th>Name</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>object-hash</td> <td>&quot;none&quot;</td> <td>hash value of the file exported</td></tr> <tr><td>encrypt</td> <td>&quot;AES&quot;</td> <td>Set the encryption algorithm used to decrypt the contents of the original file, corresponding to the encryption algorithm</td></tr> <tr><td>key</td> <td>&quot;&quot;</td> <td>Specify the key used to decrypt the content in the Object</td></tr> <tr><td>output</td> <td>current file or directory</td> <td>The path to the local file, if not specified, write the current directory with &lt;object-hash&gt; as the file name</td></tr></tbody></table></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>null</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Error Code</th> <th>Error Message</th></tr></thead> <tbody><tr><td>error</td> <td>-1</td> <td>&quot;output can not open&quot;</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># If the command is successfully executed, the path of the exported file is returned; otherwise, the error code and the cause of the error are returned.</span>
+<span class="token operator">&gt;</span> <span class="token function">pwd</span>
+/home/u/
+
+<span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio object <span class="token function">export</span> --output<span class="token operator">=</span>/home/u/ppio.txt 7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;ObjectExport&quot;,&quot;params&quot;:[&quot;7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8&quot;,&quot;&quot;,&quot;&quot;,&quot;/home/u/ppio.txt&quot;]}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result succeed</span>
+<span class="token punctuation">{</span><span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span>,<span class="token string">&quot;result&quot;</span>:null<span class="token punctuation">}</span>
+
+<span class="token comment"># Result failed</span>
+<span class="token punctuation">{</span><span class="token string">&quot;error&quot;</span>:<span class="token punctuation">{</span><span class="token string">&quot;code&quot;</span>:-1,<span class="token string">&quot;message&quot;</span><span class="token keyword">:</span><span class="token string">&quot;output can not open&quot;</span><span class="token punctuation">}</span>,<span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span><span class="token punctuation">}</span>
+
+</code></pre></div></li></ul> <h3 id="objectput"><a href="#objectput" aria-hidden="true" class="header-anchor">¶</a> ObjectPut</h3> <ul><li><p><strong>Description</strong>:<br>
+Publish a contract to upload an Object</p></li> <li><p><strong>Params</strong>:</p> <table><thead><tr><th>Name</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>object-hash</td> <td>&quot;none&quot;</td> <td>hash value of the target object</td></tr> <tr><td>copies</td> <td>5</td> <td>The number of copies stored, at least 5</td></tr> <tr><td>duration</td> <td>8640000(100 days)</td> <td>Life time of the storage stored in PPIO network, unit in second</td></tr> <tr><td>gasprice</td> <td>none</td> <td>price of Gas, unit in wei</td></tr> <tr><td>acl</td> <td>public</td> <td>Access control of the Object: &quot;public&quot; means that the Object can be accessed by anyone; &quot;private&quot; means need authorization to access</td></tr></tbody></table></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>null</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Error Code</th> <th>Error Message</th></tr></thead> <tbody><tr><td>error</td> <td>-1</td> <td>&quot;invalid buffer size&quot;</td></tr> <tr><td>error</td> <td>2017</td> <td>&quot;contract has already exsited&quot;</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># If the contract is successfully published, it does not mean that the Indexer node will be scheduled or the Object has been uploaded successfully. You can use the `ppio object status` command to query whether the Object is successfully uploaded.</span>
+
+<span class="token operator">&gt;</span> ppio object put --copies<span class="token operator">=</span>5 --duration<span class="token operator">=</span>864000 --gasprice<span class="token operator">=</span>100 --acl<span class="token operator">=</span>public 7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;ObjectPut&quot;,&quot;params&quot;:[&quot;7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8&quot;,5,864000,100,&quot;public&quot;]}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result succeed</span>
+<span class="token punctuation">{</span><span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span>,<span class="token string">&quot;result&quot;</span>:null<span class="token punctuation">}</span>
+
+<span class="token comment"># Result failed</span>
+<span class="token punctuation">{</span><span class="token string">&quot;error&quot;</span>:<span class="token punctuation">{</span><span class="token string">&quot;code&quot;</span>:-1,<span class="token string">&quot;message&quot;</span><span class="token keyword">:</span><span class="token string">&quot;invalid buffer size&quot;</span><span class="token punctuation">}</span>,<span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token string">&quot;error&quot;</span>:<span class="token punctuation">{</span><span class="token string">&quot;code&quot;</span>:2017,<span class="token string">&quot;message&quot;</span><span class="token keyword">:</span><span class="token string">&quot;contract has already exsited&quot;</span><span class="token punctuation">}</span>,<span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span><span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="objectget"><a href="#objectget" aria-hidden="true" class="header-anchor">¶</a> ObjectGet</h3> <ul><li><p><strong>Description</strong>:<br>
+Download an Object to your local storage. There are three situations:</p> <ul><li>If the object is owned by yourself, you can download the Object directly.</li> <li>If the Object is owned by others, and the ACL is public, you can download the Object directly.</li> <li>If the Object is owned by others, and the ACL is private, you must first get the authorization of the Object (via the <code>ppio object auth</code> command), and then download the object via <code>ppio object get</code>.</li></ul></li> <li><p><strong>Params</strong>:</p> <table><thead><tr><th>Name</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>object-hash</td> <td>none</td> <td>hash value of the target</td></tr> <tr><td>gasprice</td> <td>none</td> <td>price of Gas, unit in wei (Needed when the Object is owned by others and the ACL is private)</td></tr> <tr><td>owner</td> <td>none</td> <td>user-id (Needed when the Object is owned by others and the ACL is private)</td></tr> <tr><td>access-duration</td> <td>none</td> <td>The owner of the Object authorizes others how long it can access an Object (Needed when the Object is owned by others and the ACL is private)</td></tr> <tr><td>access-signature</td> <td>none</td> <td>Signature of Object (Needed when the Object is owned by others and the ACL is private)</td></tr> <tr><td>auth</td> <td>none</td> <td>The signature and signature content which the owner of the Object authorizes others how long it can access an Object (Needed when the Object is owned by others and the ACL is private)</td></tr></tbody></table></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>null</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Error Code</th> <th>Error Message</th></tr></thead> <tbody><tr><td>error</td> <td>2003</td> <td>&quot;failed to schedule task&quot;</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># User 002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa downloads his own or public Object</span>
+
+<span class="token operator">&gt;</span> ppio object get --rpcport<span class="token operator">=</span>18060 --gasprice<span class="token operator">=</span>100 --owner<span class="token operator">=</span>002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa 7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;ObjectGet&quot;,&quot;params&quot;:[&quot;7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8&quot;,100,&quot;002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa&quot;,86400,&quot;&quot;]}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span><span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span>,<span class="token string">&quot;result&quot;</span>:null<span class="token punctuation">}</span>
+
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># User 002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa authorizes user 002508021221024d8a69222ab1b305aa6abd5615058ed0e7e9f4da04e190284bbfb5fae968b348</span>
+
+<span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio object auth --rpcport<span class="token operator">=</span>18060 --accessor<span class="token operator">=</span>002508021221024d8a69222ab1b305aa6abd5615058ed0e7e9f4da04e190284bbfb5fae968b348 --duration<span class="token operator">=</span>86400 7547DF322CBAF84FD02248133BF5A1C2FAE72969
+60ECED0EF6BDE2FF3EF37CF8
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;ObjectAuth&quot;,&quot;params&quot;:{&quot;accessor&quot;:&quot;002508021221024d8a69222ab1b305aa6abd5615058ed0e7e9f4da04e190284bbfb5fae968b348&quot;, &quot;duration&quot;:&quot;86400&quot;, &quot;object-hash&quot;:&quot;7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8&quot;},&quot;id&quot;:3}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span><span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span>,<span class="token string">&quot;result&quot;</span><span class="token keyword">:</span><span class="token string">&quot;4ef8d76685cf81675d5356e16f30b5c5f7ae63a3665a665dd3cf225ab7b4aa7372012029203d3aca5f3317bf4297be1507d171930726ede7e864a9b8a4d6c5b9007547df322cbaf84fd02248133bf5a1c2fae7296960eced0ef6bde2ff3ef37cf827000000002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa27000000002508021221024d8a69222ab1b305aa6abd5615058ed0e7e9f4da04e190284bbfb5fae968b348de93c05b00000000&quot;</span><span class="token punctuation">}</span>
+
+<span class="token comment"># User 002508021221024d8a69222ab1b305aa6abd5615058ed0e7e9f4da04e190284bbfb5fae968b348 downloads files by authorization</span>
+
+<span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio object get --gasprice<span class="token operator">=</span>100 --rpcport<span class="token operator">=</span>18061 --owner<span class="token operator">=</span>002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa --auth<span class="token operator">=</span>4ef8d76685cf81675d5356e16f30b5c5f7ae63a3665a665dd3cf225ab7b4aa7372012029203d3aca5f3317bf4297be1507d171930726ede7e864a9b8a4d6c5b9007547df322cbaf84fd02248133bf5a1c2fae7296960eced0ef6bde2ff3ef37cf827000000002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa27000000002508021221024d8a69222ab1b305aa6abd5615058ed0e7e9f4da04e190284bbfb5fae968b348de93c05b00000000 7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;ObjectGet&quot;,&quot;params&quot;:[&quot;7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8&quot;,100,&quot;002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa&quot;,86400,&quot;&quot;,&quot;&quot;]}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span><span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span>,<span class="token string">&quot;result&quot;</span>:null<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="objectcopy"><a href="#objectcopy" aria-hidden="true" class="header-anchor">¶</a> ObjectCopy</h3> <ul><li><p><strong>Description</strong>:<br>
+Copy an Object from other user.</p></li> <li><p><strong>Params</strong>:</p> <table><thead><tr><th>Name</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>object-hash</td> <td>none</td> <td>Hash value of the object</td></tr> <tr><td>copies</td> <td>5</td> <td>The number of copies stored, at least 5</td></tr> <tr><td>duration</td> <td>8640000(100 days)</td> <td>The storage time of the Object, unit in second</td></tr> <tr><td>gasprice</td> <td>none</td> <td>price of Gas, unit in wei</td></tr> <tr><td>acl</td> <td>public</td> <td>Access control of the Object: &quot;public&quot; means that the Object can be accessed by anyone; &quot;private&quot; means need authorization to access</td></tr> <tr><td>auth</td> <td>none</td> <td>Required to copy other people's Objects, need an Object signature provided by others to authorize</td></tr> <tr><td>owner</td> <td>none</td> <td>User ID of the Object owner</td></tr></tbody></table></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>null</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Error Code</th> <th>Error Message</th></tr></thead> <tbody><tr><td>error</td> <td>-1</td> <td>&quot;failed to schedule copy-object&quot;</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># After the contract is successfully copied, it directly returns the success signal. It does not mean that the Indexer will be scheduled or the Object has been successfully copied. You can use the `ppio object status` command to query whether the Object is successfully copied.</span>
+
+<span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio object copy --rpcport<span class="token operator">=</span>18060 --copies<span class="token operator">=</span>5 --duration<span class="token operator">=</span>86400 --gasprice<span class="token operator">=</span>100 --acl<span class="token operator">=</span>public --auth<span class="token operator">=</span>4ef8d76685cf81675d5356e16f30b5c5f7ae63a3665a665dd3cf225ab7b4aa7372012029203d3aca5f3317bf4297be1507d171930726ede7e864a9b8a4d6c5b9007547df322cbaf84fd02248133bf5a1c2fae7296960eced0ef6bde2ff3ef37cf827000000002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa27000000002508021221024d8a69222ab1b305aa6abd5615058ed0e7e9f4da04e190284bbfb5fae968b348de93c05b00000000 --owner<span class="token operator">=</span>002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa 7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;ObjectCopy&quot;,&quot;params&quot;:[&quot;7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8&quot;,5,86400,100,&quot;public&quot;,&quot;4ef8d76685cf81675d5356e16f30b5c5f7ae63a3665a665dd3cf225ab7b4aa7372012029203d3aca5f3317bf4297be1507d171930726ede7e864a9b8a4d6c5b9007547df322cbaf84fd02248133bf5a1c2fae7296960eced0ef6bde2ff3ef37cf827000000002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa27000000002508021221024d8a69222ab1b305aa6abd5615058ed0e7e9f4da04e190284bbfb5fae968b348de93c05b00000000&quot;,&quot;002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa&quot;]}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result Succeed</span>
+<span class="token punctuation">{</span><span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span>,<span class="token string">&quot;result&quot;</span>:null<span class="token punctuation">}</span>
+
+<span class="token comment"># Result Failed</span>
+<span class="token punctuation">{</span><span class="token string">&quot;error&quot;</span>:<span class="token punctuation">{</span><span class="token string">&quot;code&quot;</span>:-1,<span class="token string">&quot;message&quot;</span><span class="token keyword">:</span><span class="token string">&quot;failed to schedule copy-object&quot;</span><span class="token punctuation">}</span>,<span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span><span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="objectstatus"><a href="#objectstatus" aria-hidden="true" class="header-anchor">¶</a> ObjectStatus</h3> <ul><li><p><strong>Description</strong>:<br>
+Get status of an Object owned by the user node. It will also show the detail contract information.</p></li> <li><p><strong>Params</strong>:</p> <table><thead><tr><th>Name</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>object-hash</td> <td>none</td> <td>hash value of the object</td></tr></tbody></table></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>status information of the object</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Error Code</th> <th>Error Message</th></tr></thead> <tbody><tr><td>error</td> <td>-1</td> <td>&quot;invalid buffer size&quot;</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio object status --rpcport<span class="token operator">=</span>18060  7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;ObjectStatus&quot;,&quot;params&quot;:[[&quot;7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8&quot;],null]}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result succeed</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span>:3,
+  <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2.0&quot;</span>,
+  <span class="token string">&quot;result&quot;</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+      <span class="token string">&quot;Object Hash&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8&quot;</span>,
+<span class="token string">&quot;Storage Contracts&quot;</span><span class="token keyword">:</span>
+<span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token string">&quot;ObjectHash&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8&quot;</span>,
+    <span class="token string">&quot;ContractId&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;3c10a30666e4a7f98893931e9823181e0d1e7fa14a94af33e2e3873b8feea857&quot;</span>,
+    <span class="token string">&quot;ContractStatus&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;US_DEAL&quot;</span>,
+    <span class="token string">&quot;Copies&quot;</span><span class="token keyword">:</span> 1,
+    <span class="token string">&quot;Duration&quot;</span><span class="token keyword">:</span> 864000,
+    <span class="token string">&quot;StartTime&quot;</span><span class="token keyword">:</span> 1538633435,
+    <span class="token string">&quot;GasPrice&quot;</span><span class="token keyword">:</span> 10000,
+    <span class="token string">&quot;CopiesRecord&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;AQ==&quot;</span>,
+    <span class="token string">&quot;MinerSegmentsInfo&quot;</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+      <span class="token string">&quot;SegmentCopyInfo&quot;</span><span class="token keyword">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token string">&quot;SegmentInfo&quot;</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;BasicInfo&quot;</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+              <span class="token string">&quot;SegmentHash&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8&quot;</span>,
+              <span class="token string">&quot;SegmentId&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;e2380dbf52d2d165042b120277fe4b55a485f508625c2877ad348062997070ff&quot;</span>,
+              <span class="token string">&quot;SegmentLength&quot;</span><span class="token keyword">:</span> 365
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Result failed</span>
+<span class="token punctuation">{</span><span class="token string">&quot;error&quot;</span>:<span class="token punctuation">{</span><span class="token string">&quot;code&quot;</span>:-1,<span class="token string">&quot;message&quot;</span><span class="token keyword">:</span><span class="token string">&quot;invalid buffer size&quot;</span><span class="token punctuation">}</span>,<span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span><span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="objectlist"><a href="#objectlist" aria-hidden="true" class="header-anchor">¶</a> ObjectList</h3> <ul><li><p><strong>Description</strong>:<br>
+Get status of all Objects owned by the user. Unlike <code>ppio object status</code>, <code>ppio object list</code> just show the segment information, But no detail contract information for the corresponding object</p></li> <li><p><strong>Params</strong>:<br>
+none</p></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>status info of objects</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Error Code</th> <th>Error Message</th></tr></thead> <tbody><tr><td>error</td> <td>-1</td> <td>&quot;invalid buffer size&quot;</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ./ppio object list --rpcport<span class="token operator">=</span>18060
+
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;ObjectList&quot;,&quot;params&quot;:[]}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span>:3,
+  <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2.0&quot;</span>,
+  // TODO <span class="token function">format</span>
+  <span class="token string">&quot;result&quot;</span><span class="token keyword">:</span>
+<span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token string">&quot;ObjectBasicInfo&quot;</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+      <span class="token string">&quot;ObjectHash&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;7547df322cbaf84fd02248133bf5a1c2fae7296960eced0ef6bde2ff3ef37cf8&quot;</span>,
+      <span class="token string">&quot;ObjectType&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;file&quot;</span>,
+      <span class="token string">&quot;ObjectAclType&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;Public&quot;</span>
+    <span class="token punctuation">}</span>,
+    <span class="token string">&quot;SegmentInfos&quot;</span><span class="token keyword">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token string">&quot;BasicInfo&quot;</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+          <span class="token string">&quot;SegmentHash&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;7547df322cbaf84fd02248133bf5a1c2fae7296960eced0ef6bde2ff3ef37cf8&quot;</span>,
+          <span class="token string">&quot;SegmentId&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;6ad3e2278e1251c1a1ebf3f842dcff2caf21d24b94148a8649896f915e574c1e&quot;</span>,
+          <span class="token string">&quot;SegmentLength&quot;</span><span class="token keyword">:</span> 87041
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>,
+  <span class="token punctuation">{</span>
+    <span class="token string">&quot;ObjectBasicInfo&quot;</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+      <span class="token string">&quot;ObjectHash&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;0f32bbbb22778b52eed14e0c295dbb442e8dc6666ff6f04c21e00f8e16e1f918&quot;</span>,
+      <span class="token string">&quot;ObjectType&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;file&quot;</span>,
+      <span class="token string">&quot;ObjectAclType&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;Public&quot;</span>
+    <span class="token punctuation">}</span>,
+    <span class="token string">&quot;SegmentInfos&quot;</span><span class="token keyword">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token string">&quot;BasicInfo&quot;</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+          <span class="token string">&quot;SegmentHash&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;0f32bbbb22778b52eed14e0c295dbb442e8dc6666ff6f04c21e00f8e16e1f918&quot;</span>,
+          <span class="token string">&quot;SegmentId&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;786445aba3770037357ff4f2c48cfdf46f1a5e15af7061a704c6fec83593685f&quot;</span>,
+          <span class="token string">&quot;SegmentLength&quot;</span><span class="token keyword">:</span> 45056
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="objectdelete"><a href="#objectdelete" aria-hidden="true" class="header-anchor">¶</a> ObjectDelete</h3> <ul><li><p><strong>Description</strong>:<br>
+Delete an Object.</p></li> <li><p><strong>Params</strong>:</p> <table><thead><tr><th>Name</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>object-hash</td> <td>none</td> <td>hash value of the object</td></tr></tbody></table></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>null</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Error Code</th> <th>Error Message</th></tr></thead> <tbody><tr><td>error</td> <td>-1</td> <td>&quot;invalid buffer size&quot;</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># command</span>
+<span class="token operator">&gt;</span> ppio object delete --rpcport<span class="token operator">=</span>18060 0F32BBBB22778B52EED14E0C295DBB
+442E8DC6666FF6F04C21E00F8E16E1F918
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;ObjectDelete&quot;,&quot;params&quot;:[&quot;0F32BBBB22778B52EED14E0C295DBB442E8DC6666FF6F04C21E00F8E16E1F918&quot;]}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span><span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span>,<span class="token string">&quot;result&quot;</span>:null<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="objectrenew"><a href="#objectrenew" aria-hidden="true" class="header-anchor">¶</a> ObjectRenew</h3> <ul><li><p><strong>Description</strong>:<br>
+Republish an Object owned by the user node.</p></li> <li><p><strong>Params</strong>:</p> <table><thead><tr><th>Name</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>object-hash</td> <td>none</td> <td>hash value of the object</td></tr> <tr><td>copies</td> <td>5</td> <td>The number of stored copies, not less than 5</td></tr> <tr><td>duration</td> <td>8640000(100 days)</td> <td>Duration the object will be stored in PPIO network, unit in second</td></tr> <tr><td>gasprice</td> <td>none</td> <td>price of Gas, unit in wei</td></tr> <tr><td>acl</td> <td>public</td> <td>Access control of the Object: &quot;public&quot; means that the Object can be accessed by anyone; &quot;private&quot; means need authorization to access</td></tr></tbody></table></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>null</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Error Code</th> <th>Error Message</th></tr></thead> <tbody><tr><td>error</td> <td>-1</td> <td>&quot;invalid buffer size&quot;</td></tr> <tr><td>error</td> <td>2009</td> <td>&quot;no need to renew object&quot;</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># The successful completion of the contract will return the success signal, otherwise it will return the error code and the reason. In addition, the release of the contract is successful, it does not mean that the Indexer node will be scheduled.</span>
+
+<span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio object renew --rpcport<span class="token operator">=</span>18060 --duration<span class="token operator">=</span>864000 --gasprice<span class="token operator">=</span>100 --copies<span class="token operator">=</span>5 --acl<span class="token operator">=</span>public 7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;ObjectRenew&quot;,&quot;params&quot;:[&quot;7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8&quot;,5,864000,100,&quot;public&quot;]}'</span>
+http://127.0.0.1:18060
+
+<span class="token comment"># Result succeed</span>
+<span class="token punctuation">{</span><span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span>,<span class="token string">&quot;result&quot;</span>:null<span class="token punctuation">}</span>
+
+<span class="token comment"># Result failed</span>
+<span class="token punctuation">{</span><span class="token string">&quot;error&quot;</span>:<span class="token punctuation">{</span><span class="token string">&quot;code&quot;</span>:2009,<span class="token string">&quot;message&quot;</span><span class="token keyword">:</span><span class="token string">&quot;no need to renew object&quot;</span><span class="token punctuation">}</span>,<span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span><span class="token punctuation">}</span>
+
+</code></pre></div></li></ul> <h3 id="objectupdateacl"><a href="#objectupdateacl" aria-hidden="true" class="header-anchor">¶</a> ObjectUpdateacl</h3> <ul><li><p><strong>Description</strong>:<br>
+Update ACL information of an Object.</p></li> <li><p><strong>Params</strong>:</p> <table><thead><tr><th>Name</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>object-hash</td> <td>none</td> <td>Hsah value of the obejct</td></tr> <tr><td>acl</td> <td>public</td> <td>Access control of the Object: &quot;public&quot; means that the Object can be accessed by anyone; &quot;private&quot; means need authorization to access</td></tr></tbody></table></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>null</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Error Code</th> <th>Error Message</th></tr></thead> <tbody><tr><td>error</td> <td>-1</td> <td>&quot;invalid buffer size&quot;</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># The successful update will return the success signal, otherwise it will return the error code and the reason.</span>
+
+<span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio object updateacl --acl<span class="token operator">=</span>private --rpcport<span class="token operator">=</span>18060 7547DF322CBAF
+84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;ObjectUpdateAcl&quot;,&quot;params&quot;:[&quot;7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8&quot;,&quot;private&quot;]}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result succeed</span>
+<span class="token punctuation">{</span><span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span>,<span class="token string">&quot;result&quot;</span>:null<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="objectauth"><a href="#objectauth" aria-hidden="true" class="header-anchor">¶</a> ObjectAuth</h3> <ul><li><p><strong>Description</strong>:<br>
+Authorize the Object to other user, within a certain duration. If the ACL of the Object is public, the command has no effect.<br>
+The authorization duration cannot exceed the time the user own the file.</p></li> <li><p><strong>Params</strong>:</p> <table><thead><tr><th>Name</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>object-hash</td> <td>none</td> <td>Hash value of the object</td></tr> <tr><td>accessor</td> <td>none</td> <td>ID of authorized user</td></tr> <tr><td>duration</td> <td>86400(a day)</td> <td>Authorized effective duration, unit in second</td></tr></tbody></table></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>null</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Error Code</th> <th>Error Message</th></tr></thead> <tbody><tr><td>error</td> <td>-1</td> <td>&quot;invalid buffer size&quot;</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># If the authorization is successful, the authorized signature information is returned for the authorized user to obtain the Object, otherwise the error code and information are returned.</span>
+
+<span class="token comment"># User 002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa authorizes user 002508021221024d8a69222ab1b305aa6abd5615058ed0e7e9f4da04e190284bbfb5fae968b348</span>
+
+<span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio object auth --rpcport<span class="token operator">=</span>18060 --accessor<span class="token operator">=</span>002508021221024d8a69222ab1b305aa6abd5615058ed0e7e9f4da04e190284bbfb5fae968b348 --duration<span class="token operator">=</span>86400 7547DF322CBAF84FD02248133BF5A1C2FAE72969
+60ECED0EF6BDE2FF3EF37CF8
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;ObjectAuth&quot;,&quot;params&quot;:[&quot;7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8&quot;,&quot;002508021221024d8a69222ab1b305aa6abd5615058ed0e7e9f4da04e190284bbfb5fae968b348&quot;, 864000]}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span><span class="token string">&quot;id&quot;</span>:1,<span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span>,<span class="token string">&quot;result&quot;</span><span class="token keyword">:</span><span class="token string">&quot;4ef8d76685cf81675d5356e16f30b5c5f7ae63a3665a665dd3cf225ab7b4aa7372012029203d3aca5f3317bf4297be1507d171930726ede7e864a9b8a4d6c5b9007547df322cbaf84fd02248133bf5a1c2fae7296960eced0ef6bde2ff3ef37cf827000000002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa27000000002508021221024d8a69222ab1b305aa6abd5615058ed0e7e9f4da04e190284bbfb5fae968b348de93c05b00000000&quot;</span><span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h2 id="ppio-status"><a href="#ppio-status" aria-hidden="true" class="header-anchor">¶</a> ppio status</h2> <ul><li><p><strong>Description</strong>:<br>
+Show runtime information of the user node.</p></li> <li><p><strong>Params</strong>:<br>
+none</p></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>protocol-version</td> <td>protocol version</td></tr> <tr><td>version</td> <td>api version</td></tr> <tr><td>id</td> <td>network id of current node, in hex string</td></tr> <tr><td>rpchost</td> <td>RPC service address</td></tr> <tr><td>rpcport</td> <td>RPC port</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:<br>
+none</p></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio status --rpcport<span class="token operator">=</span>18060
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;ppio_status&quot;,&quot;params&quot;:[],&quot;id&quot;:3}'</span>
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span>:3,
+  <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2.0&quot;</span>,
+  <span class="token string">&quot;result&quot;</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+      <span class="token string">&quot;protocol-version&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;v0.0.1&quot;</span>,
+      <span class="token string">&quot;version&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;v0.1.0&quot;</span>,
+      <span class="token string">&quot;id&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa&quot;</span>,
+      <span class="token string">&quot;rpchost&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;127.0.0.1&quot;</span>,
+      <span class="token string">&quot;rpcport&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;18060&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h2 id="ppio-storage"><a href="#ppio-storage" aria-hidden="true" class="header-anchor">¶</a> ppio storage</h2> <ul><li><p><strong>Description</strong>:<br>
+Manage storage of the user node.</p></li> <li><p><strong>Subcommands</strong>:</p> <table><thead><tr><th>Subcommand</th> <th>Description</th></tr></thead> <tbody><tr><td><a href="#storageobject"><code>StorageObject</code></a></td> <td>Show storage information of an Object</td></tr> <tr><td><a href="#storageobjects"><code>StorageObjects</code></a></td> <td>Show storage information of all the Objects</td></tr> <tr><td><a href="#storagesegments"><code>StorageSegments</code></a></td> <td>Show storage information of all the segments</td></tr> <tr><td><a href="#storagekeep"><code>StorageKeep</code></a></td> <td>Keep Object in local storage</td></tr> <tr><td><a href="#storageusage"><code>StorageUsage</code></a></td> <td>Show usage of local storage</td></tr> <tr><td><a href="#storagegc"><code>StorageGc</code></a></td> <td>Clean up objects that are not kept, if the local storage is in short</td></tr></tbody></table></li></ul> <h3 id="storageobject"><a href="#storageobject" aria-hidden="true" class="header-anchor">¶</a> StorageObject</h3> <ul><li><p><strong>Description</strong>:<br>
+Show storage information of an Object.</p></li> <li><p><strong>Params</strong>:</p> <table><thead><tr><th>Name</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>object-hash</td> <td>&quot;none&quot;</td> <td>hash value of the object</td></tr></tbody></table></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>result.Hash</td> <td>hash value of the current object</td></tr> <tr><td>result.Length</td> <td>byte length of the current object</td></tr> <tr><td>result.Segments</td> <td>The current node corresponds to the segment of the specified object</td></tr> <tr><td>result.Segments.Id</td> <td>id of the segment</td></tr> <tr><td>result.Segments.Hash</td> <td>hash of the segment</td></tr> <tr><td>result.Segments.Length</td> <td>byte length of the segment</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>error.code</td> <td>Error Code</td></tr> <tr><td>error.message</td> <td>detailed error message</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Display information about the specified Object of the current node, including its size, the number of segments, and the id and hash values of each segment.</span>
+
+<span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio storage object --rpcport<span class="token operator">=</span>18060 D2837E475978764B0A14034306C9B79A5D325040A57793CBEBAE69257AC250CE
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;StorageObject&quot;,&quot;params&quot;:[&quot;D2837E475978764B0A14034306C9B79A5D325040A57793CBEBAE69257AC250CE&quot;]}'</span>  http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span>:1,
+  <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2.0&quot;</span>,
+  <span class="token string">&quot;result&quot;</span><span class="token keyword">:</span>
+  <span class="token punctuation">{</span>
+    <span class="token string">&quot;Hash&quot;</span><span class="token keyword">:</span><span class="token string">&quot;d2837e475978764b0a14034306c9b79a5d325040a57793cbebae69257ac250ce&quot;</span>,
+    <span class="token string">&quot;Length&quot;</span>:13,
+    <span class="token string">&quot;Segments&quot;</span><span class="token keyword">:</span>
+     <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+      <span class="token string">&quot;Id&quot;</span><span class="token keyword">:</span><span class="token string">&quot;eaf86f80081b8b3096fda5964da5deba0ddece4b9eff79d4cb14c8d853d22710&quot;</span>,
+      <span class="token string">&quot;Hash&quot;</span><span class="token keyword">:</span><span class="token string">&quot;d2837e475978764b0a14034306c9b79a5d325040a57793cbebae69257ac250ce&quot;</span>,
+      <span class="token string">&quot;Length&quot;</span>:13
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Result Error</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;error&quot;</span>:<span class="token punctuation">{</span>
+    <span class="token string">&quot;code&quot;</span>:-1,
+    <span class="token string">&quot;message&quot;</span><span class="token keyword">:</span><span class="token string">&quot;no such object&quot;</span>
+    <span class="token punctuation">}</span>,
+  <span class="token string">&quot;id&quot;</span>:1,
+  <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span><span class="token string">&quot;2.0&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="storageobjects"><a href="#storageobjects" aria-hidden="true" class="header-anchor">¶</a> StorageObjects</h3> <ul><li><p><strong>Description</strong>:<br>
+Show storage information of all the Objects.</p></li> <li><p><strong>Params</strong>:<br>
+none</p></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>result.Hash</td> <td>hash value of the object</td></tr> <tr><td>result.Length</td> <td>byte length of the object</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:<br>
+none</p></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Display information about all objects of the current node, including the hash value and size of each object</span>
+
+<span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio storage objects --rpcport<span class="token operator">=</span>18060
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;StorageObjects&quot;,&quot;params&quot;:[],&quot;id&quot;:3}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span>:3,
+  <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2.0&quot;</span>,
+  <span class="token string">&quot;result&quot;</span><span class="token keyword">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+          <span class="token string">&quot;Hash&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;C9B351CA25F45D9A1D3830F16D987EEEB90668466768A03A38DC592FCA9937EC&quot;</span>,
+          <span class="token string">&quot;Length&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;16777216&quot;</span>
+      <span class="token punctuation">}</span>,
+      <span class="token punctuation">{</span>
+          <span class="token string">&quot;Hash&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;E949A1CC67C268D7E5294183B9A57B63BC00A0CC8A22909E83D2AAC181A4A9D6&quot;</span>,
+          <span class="token string">&quot;Length&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;33554435&quot;</span>
+      <span class="token punctuation">}</span>,
+      <span class="token punctuation">{</span>
+          <span class="token string">&quot;Hash&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8&quot;</span>,
+          <span class="token string">&quot;Length&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;87041&quot;</span>
+      <span class="token punctuation">}</span>,
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="storagesegments"><a href="#storagesegments" aria-hidden="true" class="header-anchor">¶</a> StorageSegments</h3> <ul><li><p><strong>Description</strong>:<br>
+Show storage information of all the segments.</p></li> <li><p><strong>Params</strong>:<br>
+none</p></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>result.Id</td> <td>id of the segment</td></tr> <tr><td>result.Hash</td> <td>hash value of the segment</td></tr> <tr><td>result.Length</td> <td>byte length of the segment</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:<br>
+none</p></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Display information about all segments of the current node, including id, hash, and size of each segment</span>
+
+<span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio storage segments --rpcport<span class="token operator">=</span>18060
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;StorageSegments&quot;,&quot;params&quot;:[],&quot;id&quot;:3}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span>:3,
+  <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2.0&quot;</span>,
+  <span class="token string">&quot;result&quot;</span><span class="token keyword">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+          <span class="token string">&quot;Id&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;6ad3e2278e1251c1a1ebf3f842dcff2caf21d24b94148a8649896f915e574c1e&quot;</span>，
+          <span class="token string">&quot;Hash&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;7547df322cbaf84fd02248133bf5a1c2fae7296960eced0ef6bde2ff3ef37cf8&quot;</span>,
+          <span class="token string">&quot;Length&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;87041&quot;</span>
+      <span class="token punctuation">}</span>,
+      <span class="token punctuation">{</span>
+          <span class="token string">&quot;Id&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;cc28362ef3b1102b7be2aacc4d98783b87f1bbfaa26f602fff53cbd62ef70632&quot;</span>，
+          <span class="token string">&quot;Hash&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;bfa15dd67653a6c20a871d8f94e2136a4d053e587cf9cd1d5cf88b96c9370e28&quot;</span>,
+          <span class="token string">&quot;Length&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;132098&quot;</span>
+      <span class="token punctuation">}</span>,
+      <span class="token punctuation">{</span>
+          <span class="token string">&quot;Id&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;44926864c68a02dec1722a873ebbdc649c59ef57efb82893d7fa979e49555e65&quot;</span>，
+          <span class="token string">&quot;Hash&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;c9b351ca25f45d9a1d3830f16d987eeeb90668466768a03a38dc592fca9937ec&quot;</span>,
+          <span class="token string">&quot;Length&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;16777216&quot;</span>
+      <span class="token punctuation">}</span>,
+
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="storagekeep"><a href="#storagekeep" aria-hidden="true" class="header-anchor">¶</a> StorageKeep</h3> <ul><li><p><strong>Description</strong>:<br>
+Keep an Object in local storage.</p> <div class="warning custom-block"><p class="custom-block-title">NOTE</p> <p>The user's own Objects are automatically kept to local storage space. Files obtained from other users require to be kept to local storage space manually.</p></div></li> <li><p><strong>Params</strong>:</p> <table><thead><tr><th>Name</th> <th>Default</th> <th>Description</th></tr></thead> <tbody><tr><td>object-hash</td> <td>&quot;none&quot;</td> <td>Hash value of the object</td></tr></tbody></table></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>success or failure signal</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>success or failure signal</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio storage keep 7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;StorageKeep&quot;,&quot;params&quot;:[7547DF322CBAF84FD02248133BF5A1C2FAE7296960ECED0EF6BDE2FF3EF37CF8],&quot;id&quot;:3}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span>:3,
+  <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2.0&quot;</span>,
+  <span class="token string">&quot;result&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;Succeed!&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="storageusage"><a href="#storageusage" aria-hidden="true" class="header-anchor">¶</a> StorageUsage</h3> <ul><li><p><strong>Description</strong>:<br>
+Show usage of local storage.</p></li> <li><p><strong>Params</strong>:<br>
+none</p></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>result.UsageRate</td> <td>usage rate of the local storage</td></tr> <tr><td>result.Total</td> <td>total amount of the local storage</td></tr> <tr><td>result.Used</td> <td>uesd amount of the local storage</td></tr> <tr><td>result.KetpTotal</td> <td>total of the kept objects</td></tr> <tr><td>result.KeptCount</td> <td>amount of the kept objects</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:<br>
+none</p></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio storage usage --rpcport<span class="token operator">=</span>18060
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;StorageUsage&quot;,&quot;params&quot;:[],&quot;id&quot;:3}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span>:3,
+  <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2.0&quot;</span>,
+  <span class="token string">&quot;result&quot;</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+      <span class="token string">&quot;Usage rate&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;50%&quot;</span>,    // Space usage rate
+      <span class="token string">&quot;Total&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;10G&quot;</span>,         // Max storage space
+      <span class="token string">&quot;Used&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;5G&quot;</span>,           // Used storage space
+      <span class="token string">&quot;KetpTotal&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2G&quot;</span>       // Total space <span class="token keyword">for</span> kept objects
+      <span class="token string">&quot;KeptCount&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;3&quot;</span>        // Count of kept objects
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="storagegc"><a href="#storagegc" aria-hidden="true" class="header-anchor">¶</a> StorageGc</h3> <ul><li><p><strong>Description</strong>:<br>
+Clean up objects that are not kept, if the local storage is in short.</p></li> <li><p><strong>Params</strong>:<br>
+none</p></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>success or failure signal</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>success or failure signal</td></tr></tbody></table></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio storage gc --rpcport<span class="token operator">=</span>18060
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;StorageGc&quot;,&quot;params&quot;:[],&quot;id&quot;:3}'</span> http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span>:3,
+  <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2.0&quot;</span>,
+  <span class="token string">&quot;result&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;Succeed!&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h2 id="ppio-wallet"><a href="#ppio-wallet" aria-hidden="true" class="header-anchor">¶</a> ppio wallet</h2> <ul><li><p><strong>Description</strong>:<br>
+Manage user's wallet.</p></li> <li><p><strong>Subcommands</strong>:</p> <table><thead><tr><th>Subcommand</th> <th>Description</th></tr></thead> <tbody><tr><td><a href="#walletaddress"><code>WalletAddress</code></a></td> <td>Show wallet address, in hex string</td></tr> <tr><td><a href="#walletbalance"><code>WalletBalance</code></a></td> <td>Show the balance of the wallet address</td></tr></tbody></table></li></ul> <h3 id="walletaddress"><a href="#walletaddress" aria-hidden="true" class="header-anchor">¶</a> WalletAddress</h3> <ul><li><p><strong>Description</strong>:<br>
+Show wallet address, in hex string.</p></li> <li><p><strong>Params</strong>:<br>
+none</p></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>current wallet address</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:<br>
+none</p></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># return current wallet address, in hex string</span>
+
+<span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio wallet <span class="token function">id</span> --rpcport<span class="token operator">=</span>18060
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;NetID&quot;,&quot;params&quot;:[]}'</span>  http://127.0.0.1:18060
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span>:1,
+  <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2.0&quot;</span>,
+  <span class="token string">&quot;result&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h3 id="walletbalance"><a href="#walletbalance" aria-hidden="true" class="header-anchor">¶</a> WalletBalance</h3> <ul><li><p><strong>Description</strong>:<br>
+Show the balance of the wallet address.</p></li> <li><p><strong>Params</strong>:<br>
+none</p></li> <li><p><strong>Success Responses</strong>:</p> <table><thead><tr><th>Result</th> <th>Description</th></tr></thead> <tbody><tr><td>Result</td> <td>the balance of the current wallet address</td></tr></tbody></table></li> <li><p><strong>Fail Responses</strong>:<br>
+none</p></li> <li><p><strong>Example</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># return the balance of the current wallet address</span>
+
+<span class="token comment"># Command</span>
+<span class="token operator">&gt;</span> ppio wallet balance --rpcport<span class="token operator">=</span>18060
+
+<span class="token comment"># Request</span>
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;NetID&quot;,&quot;params&quot;:[]}'</span> http://127.0.0.1:18060
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span>:1,
+  <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2.0&quot;</span>,
+  <span class="token string">&quot;result&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa&quot;</span>
+<span class="token punctuation">}</span>
+
+<span class="token operator">&gt;</span> <span class="token function">curl</span> --data <span class="token string">'{&quot;id&quot;:1,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;BalanceOf&quot;,&quot;params&quot;:[&quot;002508021221033fb36e1471d2153d0759e14386c6c294b1ad09244841ee8d043eadd1bfe7baaa&quot;]}'</span>  http://127.0.0.1:18070
+
+<span class="token comment"># Result</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span>:3,
+  <span class="token string">&quot;jsonrpc&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;2.0&quot;</span>,
+  <span class="token string">&quot;result&quot;</span><span class="token keyword">:</span> <span class="token string">&quot;1000000000&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/PPIO/documentation/edit/master/api/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">last modified: </span> <span class="time">11/8/2018, 7:50:48 PM</span></div></div> <!----> <footer class="page-footer"><div class="page-footer-content"><section class="copyright"><img src="/a3697dd5d198adc374c9720e7a7f2ff2.png" alt="logo" class="page-footer-logo"> <div class="line-sep"></div> <span class="page-footer-copyright">Copyright © 2018 PPIO Inc.  All Rights Reserved.</span></section> <nav class="page-footer-nav"><a href="https://twitter.com/PPLabs_PPIO" target="_blank" rel="nofollow external noopener" class="social-link-tw"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg></a> <a href="https://medium.com/@ppio" target="_blank" rel="nofollow external noopener" class="social-link-medium"><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class="icon"><path d="M512 1024C229.21216 1024 0 794.78784 0 512S229.21216 0 512 0 1024 229.21216 1024 512 794.78784 1024 512 1024z m274.432-353.15712h-21.42208c-4.01408 0-8.192-2.048-12.53376-6.144-4.3008-4.13696-6.47168-8.11008-6.47168-11.91936V372.81792c0-3.76832 2.21184-8.02816 6.63552-12.6976 4.42368-4.66944 8.56064-6.9632 12.36992-6.9632h21.42208V286.72h-202.1376l-67.25632 260.87424h-1.8432L448.512 286.72H245.76v66.43712h20.80768c4.21888 0 8.6016 2.33472 12.98432 6.9632 4.42368 4.66944 6.63552 8.88832 6.63552 12.6976v279.9616c0 3.80928-2.21184 7.7824-6.63552 11.8784-4.42368 4.13696-8.76544 6.18496-12.98432 6.18496H245.76V737.28h162.32448v-66.43712h-40.7552V376.66816h2.37568L463.2576 737.28h73.3184l94.74048-360.61184h1.80224v294.17472h-40.42752V737.28h193.7408v-66.43712z"></path></svg></a> <a href="https://www.youtube.com/channel/UCFRyuBY-PxoSaFmj5Evs5kQ" target="_blank" rel="nofollow external noopener" class="social-link-youtube"><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M624.99264 710.848l0 120.576q0 38.272-22.272 38.272-13.152 0-25.728-12.576l0-172q12.576-12.576 25.728-12.576 22.272 0 22.272 38.272zM818.14464 711.424l0 26.272-51.424 0 0-26.272q0-38.848 25.728-38.848t25.728 38.848zM266.14464 586.848l61.152 0 0-53.728-178.272 0 0 53.728 60 0 0 325.152 57.152 0 0-325.152zM430.72064 912l50.848 0 0-282.272-50.848 0 0 216q-17.152 24-32.576 24-10.272 0-12-12-0.576-1.728-0.576-20l0-208-50.848 0 0 223.424q0 28 4.576 41.728 6.848 21.152 33.152 21.152 27.424 0 58.272-34.848l0 30.848zM675.87264 827.424l0-112.576q0-41.728-5.152-56.576-9.728-32-40.576-32-28.576 0-53.152 30.848l0-124-50.848 0 0 378.848 50.848 0 0-27.424q25.728 31.424 53.152 31.424 30.848 0 40.576-31.424 5.152-15.424 5.152-57.152zM868.99264 821.728l0-7.424-52 0q0 29.152-1.152 34.848-4 20.576-22.848 20.576-26.272 0-26.272-39.424l0-49.728 102.272 0 0-58.848q0-45.152-15.424-66.272-22.272-29.152-60.576-29.152-38.848 0-61.152 29.152-16 21.152-16 66.272l0 98.848q0 45.152 16.576 66.272 22.272 29.152 61.728 29.152 41.152 0 61.728-30.272 10.272-15.424 12-30.848 1.152-5.152 1.152-33.152zM521.56864 300l0-120q0-39.424-24.576-39.424t-24.576 39.424l0 120q0 40 24.576 40t24.576-40zM932.41664 729.152q0 133.728-14.848 200-8 33.728-33.152 56.576t-58.272 26.272q-105.152 12-317.152 12t-317.152-12q-33.152-3.424-58.56-26.272t-32.864-56.576q-14.848-64-14.848-200 0-133.728 14.848-200 8-33.728 33.152-56.576t58.848-26.848q104.576-11.424 316.576-11.424t317.152 11.424q33.152 4 58.56 26.848t32.864 56.576q14.848 64 14.848 200zM362.14464 0l58.272 0-69.152 228 0 154.848-57.152 0 0-154.848q-8-42.272-34.848-121.152-21.152-58.848-37.152-106.848l60.576 0 40.576 150.272zM573.56864 190.272l0 100q0 46.272-16 67.424-21.152 29.152-60.576 29.152-38.272 0-60-29.152-16-21.728-16-67.424l0-100q0-45.728 16-66.848 21.728-29.152 60-29.152 39.424 0 60.576 29.152 16 21.152 16 66.848zM764.99264 97.728l0 285.152-52 0 0-31.424q-30.272 35.424-58.848 35.424-26.272 0-33.728-21.152-4.576-13.728-4.576-42.848l0-225.152 52 0 0 209.728q0 18.848 0.576 20 1.728 12.576 12 12.576 15.424 0 32.576-24.576l0-217.728 52 0z"></path></svg></a> <a href="https://www.linkedin.com/company/pplabs/" target="_blank" rel="nofollow external noopener" class="social-link-linkedin"><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M896 64H127.8C92.6 64 64 93 64 128.6v766.8C64 931 92.6 960 127.8 960H896c35.2 0 64-29 64-64.6V128.6c0-35.6-28.8-64.6-64-64.6zM334.8 832H202V404.4h133V832z m-66.4-486c-42.6 0-77-34.6-77-77S225.8 192 268.4 192c42.4 0 77 34.6 77 77 0 42.6-34.4 77-77 77z m564.2 486h-132.8V624c0-49.6-1-113.4-69-113.4-69.2 0-79.8 54-79.8 109.8V832h-132.8V404.4h127.4v58.4h1.8c17.8-33.6 61.2-69 125.8-69 134.4 0 159.4 88.6 159.4 203.8V832z"></path></svg></a> <a href="https://github.com/ppio" target="_blank" rel="nofollow external noopener" class="social-link-github"><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M338.048 349.248"></path> <path d="M521.024 82.112c-244.224 0-442.176 197.952-442.176 442.176 0 202.304 135.872 372.864 321.344 425.472 7.424-7.424 19.328-9.152 25.344-21.952 11.392-24.192 0.064-59.072 4.16-94.848-59.584 11.904-105.92-1.728-128.512-39.168-10.112-16.768-12.608-36.608-24.896-51.52-12.16-14.912-31.616-16.896-37.312-37.056 73.856-17.792 76.608 75.968 142.976 78.272 20.288 0.768 30.848-5.888 49.728-10.304 5.248-23.36 16.256-40.832 32.576-53.184l-0.896 0 0.576-0.576c-125.632-22.4-178.112-99.2-178.112-190.464 0-44.16 14.592-84.928 43.2-117.952-18.176-54.208 1.728-100.48 4.416-107.328 51.968-4.672 105.92 37.12 110.144 40.448 29.568-7.936 63.296-12.224 100.992-12.224 37.952 0 71.808 4.416 101.504 12.416 10.112-7.616 60.224-43.584 108.48-39.168 2.56 6.976 22.016 52.096 4.928 105.6 28.992 32.96 43.712 73.984 43.712 118.4 0 91.456-52.736 168.384-178.816 190.464l0.384 0.384-1.088 0c6.912 13.312 17.536 21.376 24.32 36.736 3.328 7.552 4.544 14.592 5.568 20.608 7.424 44.352-7.04 101.952 0.32 152.384 0.64 4.544 1.6 9.792 3.008 15.552 177.792-57.28 306.432-224.128 306.432-420.928C963.264 280.128 765.248 82.112 521.024 82.112z"></path></svg></a></nav></div></footer> </div> <!----></div></div>
+    <script src="/assets/js/5.6afcc576.js" defer></script><script src="/assets/js/app.28ed3b6b.js" defer></script>
+  </body>
+</html>
